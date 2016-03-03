@@ -82,11 +82,11 @@ function newBoard(){
 
 
 	for(var i = 0; i < memory_array.length; i++){
-    var div = document.createElement('div')
-    var idValue = 'tile' + i
-    div.setAttribute('id', idValue)
-    div.setAttribute('data-icon', memory_array[i])
-    document.getElementById('memory_board').appendChild(div)
+    var div = document.createElement('div');
+    var idValue = 'tile' + i;
+    div.setAttribute('id', idValue);
+    div.setAttribute('data-icon', memory_array[i]);
+    document.getElementById('memory_board').appendChild(div);
 	}
 
   $('#memory_board > div').on('click', function () {
@@ -103,7 +103,8 @@ function newBoard(){
 
     if (tiles_clicked === 2) {
         if(memory_values[0] == memory_values[1]){
-  				tiles_flipped += 2;
+
+          tiles_flipped += 2;
 
           if(current_player_1) {
               score_player_1 ++;
@@ -115,21 +116,21 @@ function newBoard(){
               memory_tiles[1].css("background-color", "#81b5d8");
           }
 
+          updateScore();
           clearArrays();
           tiles_clicked = 0;
 
           if(tiles_flipped == memory_array.length){
-            updateScore();
 
             if (score_player_1 > score_player_2) {
-                end_message = "Player 1 won with " + score_player_1 + " pairs!";
+                end_message = "Player 1 won with " + score_player_1 + " pairs! Generating new board";
             } else if (score_player_1 < score_player_2) {
-                end_message = "Player 2 won with " + score_player_2 + " pairs!";
+                end_message = "Player 2 won with " + score_player_2 + " pairs! Generating new board";
             } else {
                 end_message = "It's a tie!";
             }
-            alert(end_message);
-            alert("Board cleared... generating new board");
+
+            setTimeout(alert(end_message), 700);
 
   					newBoard();
   				}
@@ -165,11 +166,10 @@ function flip2Back() {
           swapHeaders();
         }
 
-      // Clear both arrays
       clearArrays();
 }
 
 $(document).ready(newBoard);
 
 $("#resetButton").on("click", newBoard);
-$("#memory_board").on('click', updateScore);
+// $("#memory_board").on('click', updateScore);
