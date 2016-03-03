@@ -1,5 +1,4 @@
 /*global $, document*/
-$(document).ready(newBoard);
 
 var Array;
 var memory_array = ['<i class="fa fa-instagram"></i>',
@@ -26,7 +25,7 @@ var memory_array = ['<i class="fa fa-instagram"></i>',
                     '<i class="fa fa-facebook-square"></i>',
                     '<i class="fa fa-google"></i>',
                     '<i class="fa fa-google"></i>'];
-// var memory_array = ['A','A','B','B','C','C','D','D','E','E','F','F','G','G','H','H','I','I','J','J','K','K','L','L'];
+
 var memory_values = [];
 var memory_tiles = [];
 var tiles_clicked = 0;
@@ -38,19 +37,37 @@ var tile_1;
 var tile_2;
 var end_message;
 
-
-$("#resetButton").on("click", newBoard);
-$("#memory_board").on('click', updateScore);
-
-
-Array.prototype.memory_tile_shuffle = function(){
-    var i = this.length, j, temp;
-    while(--i > 0){
-        j = Math.floor(Math.random() * (i+1));
+Array.prototype.memory_tile_shuffle = function () {
+    var i;
+    var j;
+    var temp;
+    for (i = this.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
         temp = this[j];
         this[j] = this[i];
         this[i] = temp;
     }
+}
+
+function originalHeaders() {
+    $("#player1-header").css("color", "#d88189");
+    $("#player2-header").css("color", "black");
+}
+
+function swapHeaders() {
+    $("#player1-header").css("color", "black");
+    $("#player2-header").css("color", "#d88189");
+}
+
+
+function clearArrays() {
+    memory_values = [];
+    memory_tiles = [];
+}
+
+function updateScore() {
+  $("#p1-num-pairs").html(score_player_1);
+  $("#p2-num-pairs").html(score_player_2);
 }
 
 function newBoard(){
@@ -74,7 +91,6 @@ function newBoard(){
 
   $('#memory_board > div').on('click', function () {
     tiles_clicked ++;
-    console.log(tiles_clicked);
 
     if (tiles_clicked <= 2) {
         $(this).css("background-color", "#b5d881");
@@ -88,7 +104,6 @@ function newBoard(){
     if (tiles_clicked === 2) {
         if(memory_values[0] == memory_values[1]){
   				tiles_flipped += 2;
-
 
           if(current_player_1) {
               score_player_1 ++;
@@ -154,22 +169,7 @@ function flip2Back() {
       clearArrays();
 }
 
-function originalHeaders() {
-    $("#player1-header").css("color", "#d88189");
-    $("#player2-header").css("color", "black");
-}
+$(document).ready(newBoard);
 
-function swapHeaders() {
-    $("#player1-header").css("color", "black");
-    $("#player2-header").css("color", "#d88189");
-}
-
-function clearArrays() {
-    memory_values = [];
-    memory_tiles = [];
-}
-
-function updateScore() {
-  $("#p1-num-pairs").html(score_player_1);
-  $("#p2-num-pairs").html(score_player_2);
-}
+$("#resetButton").on("click", newBoard);
+$("#memory_board").on('click', updateScore);
