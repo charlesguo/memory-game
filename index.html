@@ -3,12 +3,45 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css">
-        <title>Memory Game</title>
+        <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <title>Tech Memory</title>
     </head>
 
     <body>
+
+        <h1 id="title">Tech Memory</h1>
+
+        <div id="control-panel">
+
+            <div id="game-controls">
+                <button id="resetButton">Reset Game</button>
+            </div>
+
+
+
+                <div class="player-details" id="player1-details">
+                    <h2 id="player1-header">Player 1:</h2>
+                    <div class="player-info">
+                      <label for="p1-num-pairs"># of Pairs:</label>
+                      <div id="p1-num-pairs" class="col-sm-offset-2 col-sm-2 alert alert-success">0</div>
+                    </div>
+                </div>
+
+                <div class="player-details" id="player2-details">
+                    <h2 id="player2-header">Player 2:</h2>
+                    <div class="player-info">
+                      <label for="p2-num-pairs" class="player-label"># of Pairs:</label>
+                      <div id="p2-num-pairs" class="col-sm-offset-2 col-sm-2 alert alert-success">0</div>
+                    </div>
+                </div>
+
+        </div>
+
         <div id="memory_board"></div>
 
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="app.js"></script>
 
     </body>

@@ -1,14 +1,56 @@
+body {
+	background-color: #81D8D0;
+	max-width: 900px;
+	margin: 0 auto !important;
+	float: none !important;
+}
 
-div#memory_board{
-	background:#CCC;
+#title{
+	font-family: 'Lobster', Georgia, Times, serif;
+ 	font-size: 70px;
+ 	line-height: 100px;
+	text-align:center;
+}
+
+#control-panel{
+	font-family: 'Cabin', Helvetica, Arial, sans-serif;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+#resetButton{
+    background-color: #d88189; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.player-info{
+	display: flex;
+	justify-content: space-between;
+	font-size: 15px;
+	align-items: center;
+}
+
+#player1-header{
+	color: #d88189;
+}
+
+#memory_board{
+	background-color:#d8a581;
 	border:#999 1px solid;
 	width:800px;
 	height:540px;
 	padding:24px;
 	margin:0px auto;
 }
-div#memory_board > div{
-	background: #CCC;
+#memory_board > div{
+	background-color: #d8d081;
 	border:#000 1px solid;
 	width:71px;
 	height:71px;
