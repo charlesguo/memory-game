@@ -172,4 +172,3 @@ function flip2Back() {
 $(document).ready(newBoard);
 
 $("#resetButton").on("click", newBoard);
-// $("#memory_board").on('click', updateScore);
