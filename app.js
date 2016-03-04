@@ -28,6 +28,7 @@ var memory_array = ['<i class="fa fa-instagram"></i>',
 
 var memory_values = [];
 var memory_tiles = [];
+var memory_tile_ids = [];
 var tiles_clicked = 0;
 var tiles_flipped = 0;
 var current_player_1;
@@ -63,6 +64,7 @@ function swapHeaders() {
 function clearArrays() {
     memory_values = [];
     memory_tiles = [];
+    memory_tile_ids = [];
 }
 
 function updateScore() {
@@ -96,13 +98,16 @@ function newBoard(){
         $(this).css("background-color", "#b5d881");
         var icon = $(this).attr('data-icon');
         $(this).html(icon);
+        var tile_id = $(this).attr('id');
 
         memory_values.push(icon);
         memory_tiles.push($(this));
+        memory_tile_ids.push(tile_id);
+        console.log(memory_tile_ids);
     }
 
-    if (tiles_clicked === 2 && memory_tiles[0] != memory_tiles[1]) {
-        if(memory_values[0] == memory_values[1]){
+    if (tiles_clicked === 2) {
+        if(memory_values[0] == memory_values[1] && memory_tile_ids[0] != memory_tile_ids[1]){
 
           tiles_flipped += 2;
 
