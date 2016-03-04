@@ -102,7 +102,7 @@ function newBoard(){
     }
 
     if (tiles_clicked === 2) {
-        if(memory_values[0] == memory_values[1]){
+        if(memory_values[0] == memory_values[1] && memory_tiles[0] != memory_tiles[1]){
 
           tiles_flipped += 2;
 
